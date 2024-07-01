@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .form-container {
+            padding-top: 5%;
+            background-color: white;
+            max-width: 300px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body style="background-color: #ccc;">
+    <div class="form-container">
+        <h2 class="text-center">Sign Up</h2>
+        <form id="signUpForm">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+        </form>
+        <p class="text-center">Already have an account? <a href="login.html">Login here</a></p>
+    </div>
+
+    <script>
+        document.getElementById('signUpForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const email = document.getElementById('email').value;
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Validate the form fields (additional validations can be added as needed)
+            if (email === '' || username === '' || password === '') {
+                alert('All fields are required.');
+                return;
+            }
+
+            // Store the data in local storage
+            localStorage.setItem('email', email);
+            localStorage.setItem('username', username);
+            localStorage.setItem('password', password);
+
+            // Mock function to simulate form submission (replace with actual logic)
+            function submitForm(email, username, password) {
+                console.log('Form submitted with values:', {
+                    email: email,
+                    username: username,
+                    password: password
+                });
+                alert('Form submitted successfully!');
+                window.location.href = 'index.html';
+            }
+
+            // Submit the form (replace this with actual submission logic, e.g., AJAX request)
+            submitForm(email, username, password);
+        });
+    </script>
+</body>
+</html>
